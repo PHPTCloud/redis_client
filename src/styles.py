@@ -15,5 +15,6 @@ class Styles:
         self.second_bg = "#161b22"
         self.white_color = "#c9d1d9"
         self.icon_path = "assets/images/redis_icon.png"
-        self.start_window_size_x = 920
-        self.start_window_size_y = 640
+        self.connection_icon_path = "assets/images/connection_icon.png"
+        self.start_window_size_x = 720
+        self.start_window_size_y = 480

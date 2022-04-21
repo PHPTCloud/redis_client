@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import font
+
 from src.styles import Styles
 
 class MainWindow:
@@ -30,8 +31,28 @@ class MainWindow:
         
         functions_buttons_frame = Frame(self.master, bg=self.styles.main_bg, pady=20, padx=20)
         functions_buttons_frame.grid(column=0, row=1)
+        
         # Create connections button
-        self.create_connection_button = Button(functions_buttons_frame, text="Create connection", command=self.create_connection_click)
+        create_connection_button_frame = Frame(functions_buttons_frame, bg=self.styles.main_bg, pady=10, padx=10)
+        create_connection_button_frame.grid(column=0, row=0)
+        
+        global connection_icon
+        connection_image = Image.open(self.styles.connection_icon_path)
+        connection_image = connection_image.resize((82, 82), Image.ANTIALIAS)
+        connection_icon = ImageTk.PhotoImage(connection_image)
+        connection_icon_sprite = Label(create_connection_button_frame, width=82, height=82, image=connection_icon, background=self.styles.main_bg)
+        connection_icon_sprite.grid(column=0, row=0, padx=5, pady=20)
+        
+        self.create_connection_button = Button(
+            create_connection_button_frame,
+            text="Create connection",
+            command=self.create_connection_click,
+            bg="#1771F1",
+            fg="#ffffff",
+            activebackground="#5199FF",
+            activeforeground="#ffffff",
+            borderwidth=0
+        )
         self.create_connection_button.grid(column=0, row=1)
         
     def create_connection_click(self):
